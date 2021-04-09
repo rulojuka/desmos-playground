@@ -8,7 +8,10 @@
 </head>
 <body>
   <div>Type a word to see a list of common anagrams</div>
-  <input oninput="onInput(this)"/>
+  <input id="input"/>
   <div id="output"/>
 </body>
+<script>
+  document.getElementById("input").addEventListener("input", (event0 => onInput(event.target.value))); 
+</script>
 </html>

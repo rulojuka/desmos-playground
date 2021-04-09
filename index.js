@@ -74,8 +74,7 @@ const dictionary = fetch(URL).then(
   (error) => console.error("Could not fetch and calculate dictionary" + error)
 );
 
-function onInput(input) {
-  const word = input.value
+function onInput(word) {
   const anagramList = getAnagramListForWordInMap(word, sortedWordsToAnagramListMap)
   document.getElementById('output').innerHTML = JSON.stringify(anagramList, null, 2)
 }
