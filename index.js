@@ -28,25 +28,42 @@ function getAnagramListForWordInMap(word,map){
   return map.get(sortedWord) || [];
 }
 
-//Some primitive tests
-const unsortedWord = "though"
-const sortedWord = "ghhotu"
-console.assert(sortedWord === sortWord(unsortedWord), "Oops, sortWord is not working correctly!")
+// Some primitive tests
+function getTestMap(){
+  const sampleDictionary = ["a","act","cat"] // This should come already sorted
+  return preCalculate(sampleDictionary)
+}
 
-const sampleDictionary = ["a","act","cat"] // This should come already sorted
-const testMap = preCalculate(sampleDictionary)
-console.assert(2 === testMap.get("act").length, "Oops, preCalculate is not working correctly!")
-console.assert(1 === testMap.get("a").length, "Oops, preCalculate is not working correctly!")
-console.assert(2 === testMap.size, "Oops, preCalculate is not working correctly!")
+function testSortWord(){
+  const unsortedWord = "though"
+  const sortedWord = "ghhotu"
+  const errorMessage = "Oops, sortWord is not working correctly!"
+  console.assert(sortedWord === sortWord(unsortedWord), errorMessage)
+}
 
-const anagramListForCat = getAnagramListForWordInMap("cat", testMap)
-const expectedArray = ["act","cat"]
-console.assert(expectedArray.length === anagramListForCat.length, "Oops, getAnagramListForWordInMap is not working correctly!")
-console.assert(expectedArray[0] === anagramListForCat[0], "Oops, getAnagramListForWordInMap is not working correctly!")
-console.assert(expectedArray[1] === anagramListForCat[1], "Oops, getAnagramListForWordInMap is not working correctly!")
+function testPreCalculate(){
+  const testMap = getTestMap()
+  const errorMessage = "Oops, preCalculate is not working correctly!"
+  console.assert(2 === testMap.get("act").length, errorMessage)
+  console.assert(1 === testMap.get("a").length, errorMessage)
+  console.assert(2 === testMap.size, errorMessage)
+}
+
+function testGetAnagramListForWordInMap(){
+  const testMap = getTestMap()
+  const anagramListForCat = getAnagramListForWordInMap("cat", testMap)
+  const expectedArray = ["act","cat"]
+  const errorMessage = "Oops, getAnagramListForWordInMap is not working correctly!"
+  console.assert(expectedArray.length === anagramListForCat.length, errorMessage)
+  console.assert(expectedArray[0] === anagramListForCat[0], errorMessage)
+  console.assert(expectedArray[1] === anagramListForCat[1], errorMessage)
+}
+
+testSortWord()
+testPreCalculate()
+testGetAnagramListForWordInMap()
 
 let sortedWordsToAnagramListMap;
-
 const dictionary = fetch(URL).then(
   (res) => res.text()
 ).then(
