@@ -24,7 +24,7 @@ function preCalculate(dictionary){
 }
 
 function getAnagramListForWordInMap(word,map){
-  const sortedWord = word.split("").sort().join("")
+  const sortedWord = sortWord(word)
   return map.get(sortedWord) || [];
 }
 
