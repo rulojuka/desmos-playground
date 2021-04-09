@@ -15,3 +15,7 @@ Playing with code from https://jsbin.com/fekufuwiyi/edit
 
 - process while receiving request?!?! :)
 - design
+
+## Things to discuss
+
+- Show errors on html
