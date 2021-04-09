@@ -9,6 +9,7 @@ Playing with code from https://jsbin.com/fekufuwiyi/edit
 - Refactor names and functions
 - Refactor logic out of onInput
 - Catch fetch exception
+- use lower case to avoid false-negatives
 
 ## Things to do
 
